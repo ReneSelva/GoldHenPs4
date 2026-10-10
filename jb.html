@@ -20,6 +20,61 @@
       body.done #spin, body.fail #spin { display:none; }
       body.fail #msg { display:block; }
       body.done:after { content:""; }
+      #success-card {
+        display:none;
+        position:fixed;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        width:calc(100% - 36px);
+        max-width:430px;
+        padding:26px 22px 22px;
+        text-align:center;
+        background:linear-gradient(145deg,#122a29,#0d1b27);
+        border:1px solid #2c8c69;
+        border-radius:16px;
+        box-shadow:0 12px 38px rgba(0,0,0,.38);
+      }
+      body.done #success-card { display:block; }
+      #success-card .success-icon {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:58px;
+        height:58px;
+        margin:0 auto 15px;
+        border-radius:50%;
+        background:#153f32;
+        border:1px solid #3bba87;
+        color:#78f0b5;
+        font-size:31px;
+        font-weight:bold;
+        line-height:1;
+      }
+      #success-card h1 {
+        margin:0 0 8px;
+        color:#eafff4;
+        font-size:25px;
+        line-height:1.2;
+        letter-spacing:1px;
+      }
+      #success-card p {
+        margin:0;
+        color:#b6d8ca;
+        font-size:15px;
+      }
+      #success-card .success-tag {
+        display:inline-block;
+        margin-top:17px;
+        padding:7px 11px;
+        border:1px solid #286c53;
+        border-radius:999px;
+        color:#83e9b7;
+        background:#102d25;
+        font-size:12px;
+        font-weight:bold;
+        letter-spacing:.4px;
+      }
       body.log #spin, body.log #msg, body.log:after { display:none; }
       body.log #wrap { padding:14px 18px; }
       body.log #state { display:block; font-size:22px; font-weight:bold; margin:0 0 8px; }
@@ -37,6 +92,12 @@
       /><b>RAW GAME</b>
     </div>
     <div id="spin"></div>
+    <section id="success-card" role="status" aria-live="polite">
+      <div class="success-icon">&#10003;</div>
+      <h1>HEN ACTIVADO</h1>
+      <p>GoldHEN está listo para usarse.</p>
+      <div class="success-tag">ACTIVACIÓN COMPLETADA</div>
+    </section>
     <div id="msg">Restart your console</div>
     <div id="wrap">
       <div id="state"></div>
